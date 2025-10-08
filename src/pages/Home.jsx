@@ -1,0 +1,49 @@
+import Brands from "../components/home/Brands";
+import ProductsHome from "../components/home/ProductsHome";
+import { phones } from "../data/phones";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+// Get latest products
+const latestProducts = [...phones]
+  .sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate))
+  .slice(0, 8);
+
+// Get top variants
+const topVariants = phones
+  .flatMap((phone) =>
+    phone.variants.map((variant) => ({
+      ...variant,
+      title: phone.title,
+      productId: phone.id,
+    }))
+  )
+  .sort((a, b) => b.unitsSold - a.unitsSold)
+  .slice(0, 8);
+
+const Home = () => {
+  const location = useLocation();
+  useEffect(() => {
+    const savedScroll = sessionStorage.getItem(location.key);
+    if (savedScroll) {
+      const { x, y } = JSON.parse(savedScroll);
+      window.scrollTo(x, y);
+    }
+    return () => {
+      sessionStorage.setItem(
+        location.key,
+        JSON.stringify({ x: window.scrollX, y: window.scrollY })
+      );
+    };
+  }, [location]);
+
+  return (
+    <div className="mx-8">
+      <ProductsHome title="Latest Products" items={latestProducts} />
+      <ProductsHome title="Top Picks" items={topVariants} isVariantView />
+      <Brands />
+    </div>
+  );
+};
+
+export default Home;
