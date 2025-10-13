@@ -173,11 +173,6 @@ const Products = () => {
                   </button>
                   {[...Array(totalPages)].map((_, index) => {
                     const page = index + 1;
-                    if (
-                      page === 1 ||
-                      page === totalPages ||
-                      (page >= currentPage - 1 && page <= currentPage + 1)
-                    ) {
                       return (
                         <button
                           key={page}
@@ -191,13 +186,6 @@ const Products = () => {
                           {page}
                         </button>
                       );
-                    } else if (
-                      page === currentPage - 2 ||
-                      page === currentPage + 2
-                    ) {
-                      return <span key={page}>...</span>;
-                    }
-                    return null;
                   })}
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
