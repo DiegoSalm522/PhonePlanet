@@ -42,4 +42,4 @@ export const getPhoneById = (id) => {
   return phones.find(phone => phone.id === id);
 };
 
-export const brands = ["Apple", "Honor", "Huawei", "Motorola", "Oppo", "Samsung", "Xiaomi", "ZTE"];
+export const brands = ["Apple", "HONOR", "Huawei", "Motorola", "Oppo", "Samsung", "Xiaomi", "ZTE"];
