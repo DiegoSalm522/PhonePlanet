@@ -11,7 +11,7 @@ const ProductFilters = ({
   setPriceRange,
   setCurrentPage
 }) => {
-  const brands = ["Apple", "HONOR", "HUAWEI", "Motorola", "Oppo", "Samsung", "Xiaomi", "ZTE"];
+  const brands = ["Apple", "HONOR", "HUAWEI", "Motorola", "OPPO", "Samsung", "Xiaomi", "ZTE"];
 
   const handleBrandToggle = (brand) => {
     setSelectedBrands(prev =>
