@@ -2,6 +2,17 @@ import { createPhone, createColorVariants } from './utils';
 
 export const oppoPhones = [
   createPhone(
+    "OPPO A38",
+    "OPPO",
+    "2023-09-04",
+    [
+      ...createColorVariants("Black", "#0D0D0D", [
+        { storage: "128GB", price: 3879.32 },
+      ], "/img/phones/oppo/a38/black.jpg"),
+    ]
+  ),
+
+  createPhone(
     "OPPO A40",
     "OPPO",
     "2024-08-14",
@@ -50,6 +61,17 @@ export const oppoPhones = [
   ),
 
   createPhone(
+    "OPPO A58",
+    "OPPO",
+    "2023-07-18",
+    [
+      ...createColorVariants("Black", "#0D0D0D", [
+        { storage: "128GB", price: 4997.05 },
+      ], "/img/phones/oppo/a58/black.jpg"),
+    ]
+  ),
+
+  createPhone(
     "OPPO A60",
     "OPPO",
     "2024-04-26",
@@ -60,6 +82,17 @@ export const oppoPhones = [
       ...createColorVariants("White", "#FAFAFA", [
         { storage: "256GB", price: 5499.00 },
       ], "/img/phones/oppo/a60/white.jpg"),
+    ]
+  ),
+
+  createPhone(
+    "OPPO A78",
+    "OPPO",
+    "2023-01-07",
+    [
+      ...createColorVariants("Black", "#0D0D0D", [
+        { storage: "128GB", price: 5699.00 },
+      ], "/img/phones/oppo/a78/black.jpg"),
     ]
   ),
 
