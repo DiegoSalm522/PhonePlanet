@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Alert from "../components/shared/Alert";
+import { Particles } from "../components/contact/particles";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,8 +39,16 @@ const Contact = () => {
 
   return (
     <div className="relative flex items-center">
+      <Particles
+        className="absolute inset-0 -z-50"
+        quantity={100}
+        ease={80}
+        size={4}
+        color={"#06748E"}
+        refresh
+      />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md mx-auto px-5 py-4 bg-white/80 border border-gray-300 rounded-2xl">
+      <div className="flex flex-col items-center justify-center max-w-md mx-auto px-5 py-4 bg-white border border-gray-300 rounded-2xl">
         <div className="flex flex-col text-center w-full gap-5 mb-8">
           <h2 className="text-3xl font-semibold md:text-4xl lg:text-5xl">
             Contact Us

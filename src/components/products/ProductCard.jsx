@@ -28,7 +28,7 @@ const ProductCard = ({ id, title, price, image, colors, selectedColor, selectedS
           {colors.map(({ color, hex }) => (
             <span
               key={color}
-              className="w-6 h-6 rounded-full border-2"
+              className="w-6 h-6 rounded-full border border-gray-400"
               style={{ backgroundColor: hex }}
             />
           ))}

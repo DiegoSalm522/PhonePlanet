@@ -128,14 +128,14 @@ const ProductDetails = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="px-3 py-1 bg-white border border-black rounded-full"
+                  className="h-8 w-8 bg-black text-white rounded-full"
                 >
                   -
                 </button>
                 <span className="text-lg font-medium">{quantity}</span>
                 <button
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="px-3 py-1 bg-white border border-black rounded-full"
+                  className="h-8 w-8 bg-black text-white rounded-full"
                 >
                   +
                 </button>
@@ -147,22 +147,22 @@ const ProductDetails = () => {
             <button
               className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${
                 exactVariant
-                  ? "bg-gray-white border border-black text-black hover:-translate-y-1 duration-200"
-                  : "bg-gray-400 text-white cursor-not-allowed"
-              }`}
-              disabled={!exactVariant}
-            >
-              Add to Cart
-            </button>
-            <button
-              className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${
-                exactVariant
                   ? "bg-gray-950 text-white cursor-pointer hover:-translate-y-1 duration-200"
                   : "bg-gray-400 text-white cursor-not-allowed"
               }`}
               disabled={!exactVariant}
             >
               Buy Now
+            </button>
+            <button
+              className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${
+                exactVariant
+                  ? "bg-white border border-black text-black hover:-translate-y-1 duration-200"
+                  : "bg-gray-400 text-white cursor-not-allowed"
+              }`}
+              disabled={!exactVariant}
+            >
+              Add to Cart
             </button>
           </div>
         </div>

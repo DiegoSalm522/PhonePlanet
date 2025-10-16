@@ -111,7 +111,7 @@ const ProductFilters = ({
         {/* Clear Filters */}
         <button
           onClick={handleClearFilters}
-          className="w-full py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold text-sm transition-colors"
+          className="w-full py-2 bg-black text-white hover:bg-gray-900 rounded-lg font-semibold text-sm transition-colors"
         >
           Clear All Filters
         </button>

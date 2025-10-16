@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-black text-white py-5 flex items-center justify-between px-5 border-b border-slate-200 lg:px-12">
+      <header className="relative bg-black text-white py-5 flex items-center justify-between px-5 border-b border-slate-200 lg:px-12">
         {/* LOGO */}
         <Link to='/' className="text-2xl font-bold tracking-tighter transition-all">
           <p className="hidden md:flex">
@@ -33,7 +33,7 @@ const Navbar = () => {
           </p>
         </Link>
         {/* PAGES */}
-        <nav className="space-x-5 hidden md:flex">
+        <nav className="space-x-5 hidden md:flex absolute left-1/2 -translate-x-1/2">
           {navbarLinks.map(link => (
             <NavLink
               key={link.id}
@@ -48,9 +48,6 @@ const Navbar = () => {
         </nav>
         {/* ICONS */}
         <div className="flex gap-5 items-center">
-          <button className="relative">
-            <HiOutlineSearch size={25}/>
-          </button>
           <div className="relative text-xl">
             <Link to='/account' className="border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold">
               D
