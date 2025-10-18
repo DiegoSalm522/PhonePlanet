@@ -107,6 +107,10 @@ const Products = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="container my-8 flex-1">
       <div className="py-4 mx-8">
@@ -179,7 +183,7 @@ const Products = () => {
                           <button
                             key={page}
                             onClick={() => handlePageChange(page)}
-                            className={`flex px-4 py-2 mx-2 mb-2 rounded-lg font-semibold text-center justify-center ${
+                            className={`flex px-4 py-2 mx-1 mb-2 rounded-lg font-semibold text-center justify-center ${
                               currentPage === page
                                 ? "bg-black text-white"
                                 : "bg-white border border-gray-300 hover:bg-gray-100"

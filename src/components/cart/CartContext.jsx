@@ -11,20 +11,21 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
   // Load cart from localStorage
-  useEffect(() => {
-    const savedCart = localStorage.getItem("phoneplanet_cart");
+   const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('phoneplanet_cart');
     if (savedCart) {
       try {
-        setCart(JSON.parse(savedCart));
+        return JSON.parse(savedCart);
       } catch (error) {
-        console.error("Error loading cart:", error);
+        console.error('Error loading cart:', error);
+        return [];
       }
     }
-  }, []);
+    return [];
+  });
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {

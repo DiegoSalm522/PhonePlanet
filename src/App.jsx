@@ -7,6 +7,8 @@ import ProductDetails from "./components/products/ProductDetails";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./components/shared/Footer";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/order-confirmation" element={<OrderConfirmation/>}/>
       </Routes>
       <Footer/>
     </div>

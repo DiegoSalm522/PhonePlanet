@@ -62,11 +62,11 @@ const Contact = () => {
                 id="name"
                 name="name"
                 type="text"
-                className="w-full min-h-10 px-3 py-2 border border-black/10 rounded-lg mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
                 placeholder="Your full name"
                 value={formData.name}
                 onChange={handleChange}
                 required
+                className="w-full min-h-10 px-3 py-2 border border-black/10 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-cyan-600"
               />
             </div>
             <div className="mb-4">
@@ -75,11 +75,11 @@ const Contact = () => {
                 id="email"
                 name="email"
                 type="email"
-                className="w-full min-h-10 px-3 py-2 border border-black/10 rounded-lg mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
                 placeholder="Your email"
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className="w-full min-h-10 px-3 py-2 border border-black/10 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-cyan-600"
               />
             </div>
             <div className="mb-4">
@@ -88,17 +88,17 @@ const Contact = () => {
                 id="message"
                 name="message"
                 rows="4"
-                className="w-full min-h-10 px-3 py-2 border border-black/10 rounded-lg mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
                 placeholder="Write your message"
                 value={formData.message}
                 onChange={handleChange}
                 required
+                className="w-full min-h-10 px-3 py-2 border border-black/10 rounded-lg mt-2 focus:outline-none focus:ring-2 focus:ring-cyan-600"
               />
             </div>
             <div>
               <button
                 onClick={handleSend}
-                className="w-full px-1 py-3 text-[18px] text-center rounded-md cursor-pointer bg-cyan-500 hover-animation"
+                className="w-full px-1 py-3 text-[18px] text-center rounded-md cursor-pointer bg-cyan-500 hover:bg-cyan-400 hover-animation" transition
               >
                 Send
               </button>

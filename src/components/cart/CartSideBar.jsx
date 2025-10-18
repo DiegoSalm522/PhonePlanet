@@ -76,7 +76,7 @@ const CartSidebar = () => {
                   {/* Details */}
                   <div className="flex-1">
                     <h3 className="font-semibold text-sm">{item.title}</h3>
-                    <p className="text-xs text-gray-600">
+                    <p className="text-sm text-gray-800">
                       {item.color} - {item.storage}
                     </p>
                     <p className="font-bold text-sm mt-1">
