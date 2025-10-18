@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="relative bg-gray-900 text-white">
-      {/* IMAGE */}
+      {/* Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(/img/phones-banner.png)' }}
+        style={{ backgroundImage: "url(/img/phones-banner.png)" }}
       />
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black opacity-60" />
-      {/* CONTENT */}
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black opacity-80" />
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 lg:px-8 min-h-screen">
         <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4">
           Smartphones for Every Lifestyle

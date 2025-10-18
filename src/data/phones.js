@@ -1,11 +1,11 @@
-import { applePhones } from './apple';
-import { honorPhones } from './honor';
-import { huaweiPhones } from './huawei';
-import { motorolaPhones } from './motorola';
-import { oppoPhones } from './oppo';
-import { samsungPhones } from './samsung';
-import { xiaomiPhones } from './xiaomi';
-import { ztePhones } from './zte';
+import { applePhones } from "./apple";
+import { honorPhones } from "./honor";
+import { huaweiPhones } from "./huawei";
+import { motorolaPhones } from "./motorola";
+import { oppoPhones } from "./oppo";
+import { samsungPhones } from "./samsung";
+import { xiaomiPhones } from "./xiaomi";
+import { ztePhones } from "./zte";
 
 const allPhones = [
   ...applePhones,

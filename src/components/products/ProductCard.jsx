@@ -21,14 +21,14 @@ const ProductCard = ({ id, title, price, image, colors, selectedColor, selectedS
           />
         )}
         <h2 className="md:text-lg text-base font-semibold text-center">{title}</h2>
-        <p className="md:text-2xl text-xl text-center">
+        <p className="md:text-2xl text-lg text-center">
           ${price.toLocaleString()}
         </p>
         <div className="flex justify-center gap-2 mt-3 flex-wrap">
           {colors.map(({ color, hex }) => (
             <span
               key={color}
-              className="w-6 h-6 rounded-full border border-gray-400"
+              className="w-4 h-4 sm:w-6 sm:h-6 rounded-full border border-gray-400"
               style={{ backgroundColor: hex }}
             />
           ))}

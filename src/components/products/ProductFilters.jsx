@@ -31,7 +31,7 @@ const ProductFilters = ({
   };
 
   return (
-    <aside className="lg:w-64 flex-shrink-0">
+    <aside className="lg:w-64 flex-shrink-0 h-screen">
       <div className="p-4 sticky top-4">
         <h3 className="text-xl font-bold mb-4">Filters</h3>
         {/* Search Bar */}
@@ -68,7 +68,7 @@ const ProductFilters = ({
         {/* Brand Filter */}
         <div className="mb-6">
           <label className="block text-sm font-semibold mb-2">Brands</label>
-          <div className="space-y-2 max-h-64 overflow-y-auto">
+          <div className="space-y-2 max-h-fit overflow-y-auto">
             {brands.map(brand => (
               <label key={brand} className="flex items-center cursor-pointer hover:bg-gray-50 p-2 rounded">
                 <input

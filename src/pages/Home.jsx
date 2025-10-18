@@ -1,3 +1,4 @@
+import Banner from "../components/home/Banner";
 import Brands from "../components/home/Brands";
 import ProductsHome from "../components/home/ProductsHome";
 import { phones } from "../data/phones";
@@ -38,10 +39,15 @@ const Home = () => {
   }, [location]);
 
   return (
-    <div className="mx-8">
-      <ProductsHome title="Latest Products" items={latestProducts} />
-      <ProductsHome title="Top Picks" items={topVariants} isVariantView />
-      <Brands />
+    <div>
+      <Banner/>
+      <div className="container my-8 flex-1">
+        <div className="mx-8">
+          <ProductsHome title="Latest Products" items={latestProducts} />
+          <ProductsHome title="Top Picks" items={topVariants} isVariantView />
+          <Brands/>
+        </div>
+      </div>
     </div>
   );
 };

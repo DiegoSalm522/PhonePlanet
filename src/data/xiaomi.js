@@ -1,4 +1,4 @@
-import { createPhone, createColorVariants } from './utils';
+import { createPhone, createColorVariants } from "./utils";
 
 export const xiaomiPhones = [
   createPhone(

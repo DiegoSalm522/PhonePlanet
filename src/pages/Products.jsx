@@ -11,12 +11,12 @@ const Products = () => {
   // Load saved state
   const loadSavedState = () => {
     try {
-      const savedState = sessionStorage.getItem('productsPageState');
+      const savedState = sessionStorage.getItem("productsPageState");
       if (savedState) {
         return JSON.parse(savedState);
       }
     } catch (error) {
-      console.error('Error loading saved state:', error);
+      console.error("Error loading saved state:", error);
     }
     return null;
   };
@@ -40,7 +40,7 @@ const Products = () => {
       currentPage,
       scrollPosition: window.scrollY,
     };
-    sessionStorage.setItem('productsPageState', JSON.stringify(stateToSave));
+    sessionStorage.setItem("productsPageState", JSON.stringify(stateToSave));
   }, [searchTerm, sortBy, selectedBrands, priceRange, currentPage]);
 
   // Restore scroll position
@@ -104,100 +104,104 @@ const Products = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="py-4 mx-8">
-      <h2 className="text-3xl font-semibold text-center pb-4 md:text-4xl lg:text-5xl">
-        Products
-      </h2>
-      <div className="flex flex-col lg:flex-row gap-8 pt-4">
-        {/* Filters Sidebar */}
-        <ProductFilters
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          selectedBrands={selectedBrands}
-          setSelectedBrands={setSelectedBrands}
-          priceRange={priceRange}
-          setPriceRange={setPriceRange}
-          setCurrentPage={setCurrentPage}
-        />
-        {/* Products Grid */}
-        <div className="flex-1">
-          {/* Results count */}
-          {currentProducts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-500">No products found matching your criteria.</p>
-            </div>
-          ) : (
-            <>
-              <div className="mb-4 text-gray-600">
-                Showing {startIndex + 1}-{Math.min(endIndex, filteredAndSortedPhones.length)} of {filteredAndSortedPhones.length} products
+    <div className="container my-8 flex-1">
+      <div className="py-4 mx-8">
+        <h2 className="text-3xl font-semibold text-center pb-4 md:text-4xl lg:text-5xl">
+          Products
+        </h2>
+        <div className="flex flex-col lg:flex-row gap-8 pt-4">
+          {/* Filters Sidebar */}
+          <ProductFilters
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            selectedBrands={selectedBrands}
+            setSelectedBrands={setSelectedBrands}
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+            setCurrentPage={setCurrentPage}
+          />
+          {/* Products Grid */}
+          <div className="flex-1">
+            {/* Results count */}
+            {currentProducts.length === 0 ? (
+              <div className="text-center py-12">
+                <p className="text-xl text-gray-500">No products found matching your criteria.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-                {currentProducts.map((phone) => {
-                  const cheapestVariant = phone.variants.reduce((min, v) =>
-                    v.price < min.price ? v : min
-                  );
-                  const colors = [
-                    ...new Map(
-                      phone.variants.map((v) => [v.color, { color: v.color, hex: v.hex }])
-                    ).values(),
-                  ];
-                  return (
-                    <ProductCard
-                      key={phone.id}
-                      id={phone.id}
-                      title={phone.title}
-                      price={cheapestVariant.price}
-                      image={cheapestVariant.image}
-                      colors={colors}
-                      selectedColor={cheapestVariant.color}
-                      selectedStorage={cheapestVariant.storage}
-                    />
-                  );
-                })}
-              </div>
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-2 mt-8">
-                  <button
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="p-2 rounded-lg border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <FaChevronLeft />
-                  </button>
-                  {[...Array(totalPages)].map((_, index) => {
-                    const page = index + 1;
-                      return (
-                        <button
-                          key={page}
-                          onClick={() => handlePageChange(page)}
-                          className={`px-4 py-2 rounded-lg font-semibold ${
-                            currentPage === page
-                              ? "bg-black text-white"
-                              : "border border-gray-300 hover:bg-gray-100"
-                          }`}
-                        >
-                          {page}
-                        </button>
-                      );
-                  })}
-                  <button
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="p-2 rounded-lg border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <FaChevronRight />
-                  </button>
+            ) : (
+              <>
+                <div className="mb-4 text-gray-600">
+                  Showing {startIndex + 1}-{Math.min(endIndex, filteredAndSortedPhones.length)} of {filteredAndSortedPhones.length} products
                 </div>
-              )}
-            </>
-          )}
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {currentProducts.map((phone) => {
+                    const cheapestVariant = phone.variants.reduce((min, v) =>
+                      v.price < min.price ? v : min
+                    );
+                    const colors = [
+                      ...new Map(
+                        phone.variants.map((v) => [v.color, { color: v.color, hex: v.hex }])
+                      ).values(),
+                    ];
+                    return (
+                      <ProductCard
+                        key={phone.id}
+                        id={phone.id}
+                        title={phone.title}
+                        price={cheapestVariant.price}
+                        image={cheapestVariant.image}
+                        colors={colors}
+                        selectedColor={cheapestVariant.color}
+                        selectedStorage={cheapestVariant.storage}
+                      />
+                    );
+                  })}
+                </div>
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="flex justify-center items-center gap-2 mt-8">
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="p-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <FaChevronLeft />
+                    </button>
+                    <div className="md:flex grid grid-cols-5">
+                    {[...Array(totalPages)].map((_, index) => {
+                      const page = index + 1;
+                        return (
+                          <button
+                            key={page}
+                            onClick={() => handlePageChange(page)}
+                            className={`flex px-4 py-2 mx-2 mb-2 rounded-lg font-semibold text-center justify-center ${
+                              currentPage === page
+                                ? "bg-black text-white"
+                                : "bg-white border border-gray-300 hover:bg-gray-100"
+                            }`}
+                          >
+                            {page}
+                          </button>
+                        );
+                    })}
+                    </div>
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="p-2 rounded-lg bg-white border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <FaChevronRight />
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
