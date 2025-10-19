@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Alert from "../components/shared/Alert";
-import { Particles } from "../components/contact/particles";
+import { Particles } from "../components/contact/Particles";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
