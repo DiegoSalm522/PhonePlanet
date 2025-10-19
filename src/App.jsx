@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/shared/Navbar";
 import CartSidebar from "./components/cart/CartSideBar";
 import Home from "./pages/Home";
@@ -23,6 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/order-confirmation" element={<OrderConfirmation/>}/>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer/>
     </div>

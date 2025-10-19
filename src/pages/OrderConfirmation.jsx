@@ -1,16 +1,22 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useCart } from "../components/cart/CartContext";
 import { FaCheckCircle } from "react-icons/fa";
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { clearCart } = useCart();
 
   useEffect(() => {
+    const fromCheckout = location.state?.fromCheckout;
+    if (!fromCheckout) {
+      navigate("/", { replace: true });
+      return;
+    }
     window.scrollTo(0, 0);
     clearCart();
-  }, []);
+  }, [location, navigate]);
 
   const handleNavigation = (path) => {
     navigate(path);

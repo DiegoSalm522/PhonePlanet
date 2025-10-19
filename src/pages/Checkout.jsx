@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../components/cart/CartContext";
 
 const Checkout = () => {
-  const { cart, getTotalPrice } = useCart();
+  const { cart, getTotalPrice} = useCart();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -26,19 +26,39 @@ const Checkout = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let cleanedValue = value;
+    if (["phone", "zipCode", "cardNumber", "expiryDate", "cvv"].includes(name)) {
+      cleanedValue = value.replace(/\D/g, "");
+      if (name === "expiryDate") {
+        if (cleanedValue.length > 2) {
+          cleanedValue = cleanedValue.slice(0, 2) + "/" + cleanedValue.slice(2, 4);
+        }
+        if (cleanedValue.length > 5) {
+          cleanedValue = cleanedValue.slice(0, 5);
+        }
+      }
+    }
+    else if (["firstName", "lastName", "city", "state", "country", "cardName"].includes(name)) {
+      cleanedValue = value.replace(/[^a-zA-Z\sáéíóúÁÉÍÓÚñÑ]/g, "");
+    }
+    else {
+      cleanedValue = value;
+    }
+    setFormData({ ...formData, [name]: cleanedValue });
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = document.querySelector("form");
     if (!form.checkValidity()) {
       form.reportValidity();
-      console.log(e);
       return;
     }
-    console.log("form submitted")
-    navigate("/order-confirmation");
+    navigate("/order-confirmation", { 
+      state: { fromCheckout: true } 
+    });
   };
 
   if (cart.length === 0) {
@@ -68,7 +88,7 @@ const Checkout = () => {
                 <h2 className="text-xl font-bold mb-4">Personal Information</h2>
                 <div className="grid grid-cols-2 gap-4">
                   <input
-                    id="firstname"
+                    id="firstName"
                     name="firstName"
                     type="text"
                     placeholder="First Name"
@@ -105,6 +125,8 @@ const Checkout = () => {
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
+                  minLength="10"
+                  maxLength="10"
                   required
                   className="w-full mt-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                 />
@@ -178,6 +200,7 @@ const Checkout = () => {
                   value={formData.cardNumber}
                   onChange={handleChange}
                   required
+                  minLength="16"
                   maxLength="16"
                   className="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                 />
@@ -211,6 +234,7 @@ const Checkout = () => {
                     value={formData.cvv}
                     onChange={handleChange}
                     required
+                    minLength="3"
                     maxLength="3"
                     className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   />

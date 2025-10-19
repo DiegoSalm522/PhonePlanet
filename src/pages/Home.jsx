@@ -3,7 +3,7 @@ import Brands from "../components/home/Brands";
 import ProductsHome from "../components/home/ProductsHome";
 import { phones } from "../data/phones";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Get latest products
 const latestProducts = [...phones]
@@ -24,6 +24,8 @@ const topVariants = phones
 
 const Home = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const savedScroll = sessionStorage.getItem(location.key);
     if (savedScroll) {
@@ -40,6 +42,36 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const keysToRemove = [];
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+      if (key && key.startsWith("@react-router")) {
+        keysToRemove.push(key);
+      }
+    }
+    keysToRemove.forEach(key => sessionStorage.removeItem(key));
+    window.history.replaceState(null, "", "/");
+    window.history.pushState(null, "", "/");
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.history.replaceState(null, "", "/");
+    };
+
+    const handlePopState = (event) => {
+      window.history.pushState(null, "", "/");
+      event.preventDefault();
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('popstate', handlePopState);
+    window.history.pushState(null, "", "/");
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, []);
 
   return (
