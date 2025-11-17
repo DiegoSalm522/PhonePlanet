@@ -1,12 +1,25 @@
-# React + Vite
+# 📱Phone Planet🌎
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An e-commerce web application built for a cellphone store featuring 8 brands, 180+ products, and 800+ variants — all displayed through an attractive and intuitive responsive UI.
 
-Currently, two official plugins are available:
+Designed to deliver a seamless shopping experience with powerful product management and user-friendly interactions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛍️ Key Features
+- 🔎 Advanced Filtering, Sorting & Search — Easily find and compare products by brand, price, or features.
+- 📑 Pagination System — Smooth browsing experience even with large product catalogs.
+- 🛒 Shopping Cart Simulation — Add, remove, and update products dynamically.
+- 💳 Checkout Flow — Simulated purchase process for a realistic e-commerce experience.
+- 📱 Fully Responsive Design — Optimized for mobile, tablet, and desktop devices.
 
-## Expanding the ESLint configuration
+## 🧠 Tech Stack
+- ⚛️ React
+- 💛 JavaScript
+- 🧾 HTML5
+- 🎨 Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💼 About the Project
+Phone Planet was developed as a frontend-only e-commerce simulation focused on UI/UX design, scalability, and performance.
+Its modular architecture allows easy integration with future APIs or backend services. 🚀
+
+## 🤝 Let’s Connect!
+If you enjoyed this project or want to collaborate, feel free to reach out — I’m always open to new challenges and creative ideas! 🌟
