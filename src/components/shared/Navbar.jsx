@@ -51,7 +51,7 @@ const Navbar = () => {
         </nav>
         {/* ICONS */}
         <div className="flex gap-5 items-center">
-          <button className="relative" onClick={toggleCart}>
+          <button className="relative hover:text-cyan-600 transition-all duration-300" onClick={toggleCart}>
             {totalItems > 0 && (
               <span className="absolute bottom-5 -right-2 w-5 h-5 grid place-items-center bg-red-600 text-white text-xs rounded-full">
                 {totalItems}
@@ -59,7 +59,7 @@ const Navbar = () => {
             )}
             <FaCartShopping size={30}/>
           </button>
-          <button className="md:hidden" onClick={toggleMenu}>
+          <button className="md:hidden hover:text-cyan-600 transition-all duration-300" onClick={toggleMenu}>
             {isOpen ? <FaTimes size={25}/> : <FaBars size={25}/>}
           </button>
         </div>

@@ -44,7 +44,7 @@ const CartSidebar = () => {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b flex-shrink-0">
           <h2 className="text-2xl font-bold">Shopping Cart</h2>
-          <button className="p-2" onClick={closeCart}>
+          <button className="p-2 hover:text-gray-700 transition" onClick={closeCart}>
             <FaTimes size={24} />
           </button>
         </div>
